@@ -1,0 +1,40 @@
+<!-- 引入 React 和 ReactDOM -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+<!-- 引入 Gwitter -->
+<script src="https://unpkg.com/gwitter/dist/gwitter.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/gwitter/dist/gwitter.min.css">
+
+<script>
+  gwitter({
+    container: document.getElementById('comments'),
+    config: {
+      request: {
+        // GitHub Personal Access Token
+        token: ['ghp_CNHgCrFCsZhs1dparBfwmh5PDebG7E2U', 'sshq'],
+
+        // OAuth 配置
+        clientID: 'Ov23liiwmZMuasW7ClJ0',
+        clientSecret: '8d1b9929441b428dd4762aa5a6492e9a1faeb4e3',
+
+        // GitHub 仓库配置
+        owner: 'jslilei',
+        repo: 'selftalk',
+
+        // 分页配置
+        pageSize: 6,
+
+        // CORS 代理（可选）
+        autoProxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',
+      },
+      app: {
+        // 应用功能开关
+        onlyShowOwner: false,
+        enableRepoSwitcher: false,
+        enableAbout: false,
+        enableEgg: false,
+      },
+    }
+  });
+</script>
