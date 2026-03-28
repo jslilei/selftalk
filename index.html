@@ -24,6 +24,9 @@
 
     <!-- Custom styles -->
     <style>
+      /* ==========================================
+         1. 电脑端基础样式 (PC First)
+         ========================================== */
       * {
         box-sizing: border-box;
       }
@@ -36,10 +39,14 @@
         color: #333;
         line-height: 1.6;
       }
-header h1 {
- letter-spacing: 2px; /* 增加字间距，看起来更高级 */
- 
-}
+
+      header h1 {
+        letter-spacing: 2px;
+        margin: 0;
+        font-size: 2.5em;
+        font-weight: 300;
+      }
+
       .container {
         max-width: 1200px;
         margin: 0 auto;
@@ -54,38 +61,6 @@ header h1 {
         color: white;
         padding: 40px 30px;
         text-align: center;
-      }
-
-      header h1 {
-        margin: 0 0 10px 0;
-        font-size: 2.5em;
-        font-weight: 300;
-      }
-
-      header p {
-        margin: 10px 0;
-        font-size: 1.1em;
-        opacity: 0.9;
-      }
-
-      .config-notice {
-        background-color: #fff3cd;
-        border: 1px solid #ffeaa7;
-        color: #856404;
-        padding: 20px;
-        margin: 0;
-        text-align: center;
-      }
-
-      .config-notice strong {
-        color: #d63031;
-      }
-
-      .config-notice code {
-        background-color: rgba(0, 0, 0, 0.1);
-        padding: 2px 6px;
-        border-radius: 3px;
-        font-family: 'Monaco', 'Menlo', monospace;
       }
 
       main {
@@ -130,33 +105,62 @@ header h1 {
         font-weight: 500;
       }
 
-      footer a:hover {
-        text-decoration: underline;
-      }
+      /* ==========================================
+         2. 手机端响应式优化 (Mobile Layout)
+         当屏幕宽度小于 768px 时自动生效
+         ========================================== */
+      @media (max-width: 768px) {
+        body {
+          padding: 10px; /* 减少页面边距 */
+          background-color: #fff; /* 手机端背景纯白更清爽 */
+        }
 
-      .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        margin: 30px 0;
-      }
+        .container {
+          border-radius: 0; /* 铺满全屏，取消圆角 */
+          box-shadow: none; /* 取消阴影，减少视觉负担 */
+        }
 
-      .feature {
-        background-color: #f8f9fa;
-        padding: 20px;
-        border-radius: 8px;
-        border-left: 4px solid #667eea;
-      }
+        header {
+          padding: 25px 15px; /* 缩小页眉高度 */
+        }
 
-      .feature h3 {
-        margin: 0 0 10px 0;
-        color: #2c3e50;
-      }
+        header h1 {
+          font-size: 1.6em; /* 缩小标题字号 */
+          letter-spacing: 1px;
+        }
 
-      .feature p {
-        margin: 0;
-        color: #666;
-        font-size: 0.95em;
+        main {
+          padding: 10px 5px; /* 缩小主要区域边距 */
+        }
+
+        #gwitter-container {
+          margin: 10px 0;
+          border: none; /* 手机端去掉内框线 */
+        }
+
+        /* 针对 Gwitter 内部组件的深度优化 */
+        /* 隐藏冗余的语言切换选项 */
+        .style-switcher__lang, 
+        .login-switcher__lang {
+          display: none !important;
+        }
+
+        /* 让登录按钮紧凑化 */
+        .login-switcher__button {
+          padding: 5px 12px !important;
+          font-size: 13px !important;
+        }
+
+        /* 优化内容文字大小，让屏幕容纳更多信息 */
+        .gt-comment-content {
+          font-size: 14px !important;
+          line-height: 1.5 !important;
+        }
+
+        /* 缩小头像和用户名的占位 */
+        .gt-comment-username {
+          font-size: 13px !important;
+        }
       }
     </style>
   </head>
