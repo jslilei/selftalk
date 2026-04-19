@@ -164,6 +164,21 @@
           font-size: 13px !important;
         }
       }
+      /* 覆盖 Gwitter 内部渲染的文字大小 */
+#gwitter-container .gt-comment-content {
+  font-size: 1.1rem !important; /* 相对大小，随 body 缩放 */
+  color: #2c3e50 !important;
+}
+
+/* 如果有 Markdown 代码块，也适当调整 */
+#gwitter-container pre, #gwitter-container code {
+  font-size: 15px !important;
+}
+
+/* 调整列表间距，防止文字挤在一起 */
+#gwitter-container .gt-comment-content p {
+  margin-bottom: 1.2em !important;
+}
     </style>
   </head>
   <body>
