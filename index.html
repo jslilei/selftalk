@@ -179,6 +179,47 @@
 #gwitter-container .gt-comment-content p {
   margin-bottom: 1.2em !important;
 }
+
+      /* ==========================================
+         3. 统一文章配图尺寸 (Gwitter .markdown-body img)
+         GitHub issue 里上传的原图大小不一；Gwitter 默认只限制
+         max-width:100%，窄图按原尺寸显示会显得小且不整齐。
+         下面统一图片显示样式，使页面更整洁。
+         ========================================== */
+
+      /* 主方案：所有配图统一最大宽度、等比缩放、居中显示 */
+      .markdown-body img {
+        display: block !important;
+        width: 100% !important;          /* 强制占满内容区，宽度统一 */
+        max-width: 760px !important;     /* 但不超过 760px，避免大屏过宽 */
+        height: auto !important;         /* 高度等比自适应，不变形 */
+        margin: 1.5em auto !important;   /* 上下留白并水平居中 */
+        border-radius: 8px !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10) !important;
+        box-sizing: border-box !important;
+      }
+
+      /* 排除 emoji 图标，避免被当成配图放大 */
+      .markdown-body g-emoji img {
+        display: inline !important;
+        width: 1em !important;
+        height: 1em !important;
+        max-width: none !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        vertical-align: -0.125em !important;
+      }
+
+      /* 备选方案 A（温和，不放大窄图）：
+         把上面 .markdown-body img 的 width 改为 auto 即可，
+         窄图保持原尺寸、仅限制最大宽度，不会被拉伸模糊。
+         width: auto !important;
+
+         备选方案 B（最整齐，裁切内容）：
+         固定显示尺寸并用 object-fit 裁切填充：
+         .markdown-body img { width:100% !important; max-width:760px !important;
+           height:380px !important; object-fit:cover !important; } */
     </style>
   </head>
   <body>
